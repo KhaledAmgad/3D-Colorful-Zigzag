@@ -50,7 +50,7 @@ public class BallController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !gameOver && !GameManger.instance.pause)
         {
-            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
                 switchDirection();
             }
