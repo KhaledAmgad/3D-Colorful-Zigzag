@@ -22,7 +22,6 @@ public class PlatformSpawner : MonoBehaviour
         {
             SpawnPlatforms();
         }
-        //InvokeRepeating("SpawnPlatforms", 2f, 0.2f);
         
     }
 
@@ -31,15 +30,7 @@ public class PlatformSpawner : MonoBehaviour
     {
         if (GameManger.instance.gameOver)
         { CancelInvoke("SpawnPlatforms"); }
-       
-    }
-    public void startSpawnPlatforms()
-    {
-        InvokeRepeating("SpawnPlatforms", 0.1f, 0.2f);
-    }
-    void SpawnPlatforms()
-    {
-        if (PlayerPrefs.GetInt("score") - minScore >100f)
+	if (PlayerPrefs.GetInt("score") - minScore >100f)
         {
             randomColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             gotRandom = true;
@@ -49,12 +40,20 @@ public class PlatformSpawner : MonoBehaviour
         }
         if (gotRandom)
         {
-            blue.color = Vector4.Lerp(blue.color, randomColor, 20 * Time.deltaTime);
+            blue.color = Vector4.Lerp(blue.color, randomColor, Time.deltaTime);
             if (blue.color == randomColor)
             {
                 gotRandom = false;
             }
         }
+       
+    }
+    public void startSpawnPlatforms()
+    {
+        InvokeRepeating("SpawnPlatforms", 0.1f, 0.3f);
+    }
+    void SpawnPlatforms()
+    {
         int rand = Random.Range(0, 6);
         if(rand<3)
         {

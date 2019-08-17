@@ -20,7 +20,7 @@ public class TriggerChecker : MonoBehaviour
     {
         if(col.gameObject.tag =="Ball")
         {
-            Invoke("FallDown", 2f);
+            Invoke("FallDown", 1f);
             
         }
 
@@ -29,12 +29,12 @@ public class TriggerChecker : MonoBehaviour
     {
         GetComponentInParent<Rigidbody>().isKinematic = false;
         GetComponentInParent<Rigidbody>().useGravity = true;
-        Destroy(transform.parent.gameObject, 2f);
+        Destroy(transform.parent.gameObject, 1f);
         if (selfDiamend!=null)
         {
             selfDiamend.GetComponentInParent<Rigidbody>().isKinematic = false;
             selfDiamend.GetComponentInParent<Rigidbody>().useGravity = true;
-            Destroy(selfDiamend.gameObject, 2f);
+            Destroy(selfDiamend.gameObject, 1f);
         }
         
 

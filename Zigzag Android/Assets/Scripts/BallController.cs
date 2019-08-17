@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour
         started = false;
         gameOver = false;
         Application.targetFrameRate = 300;
-        speed = 3f;
+        speed = 4f;
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class BallController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !gameOver && !GameManger.instance.pause)
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch (0).fingerId))
             {
                 switchDirection();
             }
@@ -80,6 +80,9 @@ public class BallController : MonoBehaviour
     }
     public void incrementSpeed()
     {
-        speed += 0.25f;
+	if(speed<10f) 
+	{
+	    speed += 0.25f;
+	}
     }
 }
