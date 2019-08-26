@@ -32,7 +32,6 @@ public class GameManger : MonoBehaviour
     public void GameStart()
     {
         UiManger.instance.GameStart();
-        ScoreManger.instance.startScore();
         GameObject.Find("PlatformSpawner").GetComponent<PlatformSpawner>().startSpawnPlatforms();
     }
     public void GameStop()

@@ -21,6 +21,7 @@ public class TriggerChecker : MonoBehaviour
         if(col.gameObject.tag =="Ball")
         {
             Invoke("FallDown", 1f);
+            ScoreManger.instance.score++;
             
         }
 
