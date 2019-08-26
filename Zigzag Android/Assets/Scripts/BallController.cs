@@ -50,7 +50,7 @@ public class BallController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !gameOver && !GameManger.instance.pause)
         {
-            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch (0).fingerId))
+            if (!EventSystem.current.IsPointerOverGameObject(/*Input.GetTouch(0).fingerId*/))
             {
                 switchDirection();
             }
@@ -80,7 +80,7 @@ public class BallController : MonoBehaviour
     }
     public void incrementSpeed()
     {
-	if(speed<10f) 
+	if(speed<7f)
 	{
 	    speed += 0.25f;
 	}

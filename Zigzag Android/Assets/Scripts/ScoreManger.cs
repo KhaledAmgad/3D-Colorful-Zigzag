@@ -25,17 +25,8 @@ public class ScoreManger : MonoBehaviour
     {
         PlayerPrefs.SetInt("score", score);
     }
-    void incrementScore()
-    {
-        score++;
-    }
-    public void startScore()
-    {
-        InvokeRepeating("incrementScore", 0.1f, 0.5f);
-    }
     public void stopScore()
     {
-        CancelInvoke("incrementScore");
         PlayerPrefs.SetInt("score", score);
         if (PlayerPrefs.HasKey("highScore"))
         {
